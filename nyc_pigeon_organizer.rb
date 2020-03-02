@@ -24,3 +24,4 @@ names.each do |nickn|
 end 
 pigeon_hash
 end 
+nyc_pigeon_organizer(pigeons)
