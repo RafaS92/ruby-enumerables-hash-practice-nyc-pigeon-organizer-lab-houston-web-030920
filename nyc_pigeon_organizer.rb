@@ -12,47 +12,22 @@ def nyc_pigeon_organizer(data)
   end 
   
 names.each do |nickn|
-  pigeon_hash[nickn] = Hash.new{|k,v| k[v] = []}
+  pigeon_hash[nickn] = Hash.new {|k,v| k[v] = []}
   data.each do |attribute, items|
     pigeon_hash [nickn][attribute]
     items.each do |feature,array|
       array.each do |name|
-        pigeon_hash[name][attribute] << feature.to_s == nickn
+        pigeon_hash[name][attribute] << feature.to_s if name == nickn
       end
     end 
   end 
 end 
 pigeon_hash
 end 
-nyc_pigeon_organizer(data)
-
-
-
-def nyc_pigeon_organizer(data)
-
-  names = []
-  pigeon_hash = {}
-
-  data.each do |attribute, items|
+data.each do |attribute, items|
     items.each do |feature, arr|
       arr.each do |name|
         names << name if !names.include?(name)
       end
     end
   end
-  
-  names.each do |nombre|
-    pigeon_hash[nombre] = Hash.new {|k, v| k[v] = []}
-    data.each do |attribute, items|
-      pigeon_hash[nombre][attribute]
-      items.each do |feature, arr|
-        arr.each do |name|
-          pigeon_hash[name][attribute] << feature.to_s if name == nombre
-        end
-      end
-    end
-  end
-  
-  pigeon_hash
-
-end
