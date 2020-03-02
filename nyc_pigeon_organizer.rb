@@ -12,7 +12,7 @@ def nyc_pigeon_organizer(data)
   end 
   
 names.each do |nickn|
-  pigeon_hash[nickn] = hash.new{|k,v| k[v] = []}
+  pigeon_hash[nickn] = Hash.new{|k,v| k[v] = []}
   data.each do |attribute, items|
     pigeon_hash [nickn][attribute]
     items.each do |feature,array|
